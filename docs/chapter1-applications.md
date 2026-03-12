@@ -1,139 +1,117 @@
-# OpenCLAW 的应用场景
+# OpenClaw 的应用场景
 
-## Web 开发
+OpenClaw 作为一款强大的 AI Agent 框架，可以应用于各种场景。本章将介绍一些典型的应用案例。
 
-OpenCLAW 可以快速构建 Web 服务器和 API 接口。
+## 1. 个人助手
 
-### 示例：一个简单的 Web 服务器
+### 日程管理
+OpenClaw 可以帮你管理日程：
+- 设置提醒
+- 安排会议
+- 自动发送日程摘要
 
-```claw
-import claw.http
-
-// 创建 HTTP 服务器
-server = http.Server.new(8080)
-
-// 处理 GET 请求
-server.get("/", func(req, res) {
-    res.send("你好，欢迎学习 OpenCLAW！")
-})
-
-// 启动服务器
-server.listen()
+**示例**：
+```
+用户：帮我安排明天下午3点开会讨论项目进度
+OpenClaw：已为你安排明天15:00的会议，我会提前15分钟提醒你。
 ```
 
-运行上面的代码，你就可以在浏览器访问 `http://localhost:8080`，看到"你好，欢迎学习 OpenCLAW！"的响应。
+### 生活提醒
+- 天气提醒
+- 服药提醒
+- 生日祝福
 
-## 自动化脚本
+## 2. 办公自动化
 
-OpenCLAW 非常适合编写自动化脚本，帮你完成重复性的工作。
+### 邮件处理
+- 自动回复邮件
+- 邮件分类整理
+- 重要邮件摘要
 
-### 示例：批量重命名文件
+### 文档处理
+- 自动整理文件
+- 文档格式转换
+- 内容摘要生成
 
-```claw
-import claw.fs
+## 3. 信息聚合
 
-// 获取当前目录下所有 .txt 文件
-files = fs.listDir(".", "*.txt")
+### 新闻摘要
+每天自动获取并总结：
+- 科技新闻
+- 行业动态
+- 股票信息
 
-// 批量重命名
-files.each(func(file) {
-    newName = "backup_" + file
-    fs.rename(file, newName)
-    print("已将 " + file + " 重命名为 " + newName)
-})
-```
+### 社交媒体监控
+- 关注特定话题
+- 自动回复评论
+- 舆情分析
 
-## 数据处理
+## 4. 开发辅助
 
-OpenCLAW 内置强大的数据处理功能，适合处理 JSON、CSV 等格式的数据。
+### 代码助手
+- 代码审查
+- Bug 定位
+- 文档生成
 
-### 示例：处理 JSON 数据
+### 自动化部署
+- 自动测试
+- 部署脚本
+- 日志分析
 
-```claw
-import claw.json
+## 5. 智能家居集成
 
-// 解析 JSON
-data = json.parse('{"name": "张三", "age": 25}')
+### 设备控制
+- 控制智能灯
+- 调节温度
+- 开关电器
 
-// 访问数据
-print("姓名：" + data.name)
-print("年龄：" + data.age)
+### 场景联动
+- 离家模式
+- 回家模式
+- 睡眠模式
 
-// 转换为 JSON 字符串
-output = json.stringify(data)
-print(output)
-```
+## 6. 数据分析
 
-## 命令行工具
+### 定时报表
+- 销售数据汇总
+- 网站流量分析
+- 用户行为报告
 
-使用 OpenCLAW 可以快速开发命令行工具。
+### 异常检测
+- 系统监控
+- 性能告警
+- 安全预警
 
-### 示例：计算器
+## 实战案例
 
-```claw
-import claw.cli
+### 案例 1：早上自动推送
 
-// 获取命令行参数
-args = cli.args()
+配置定时任务，每天早上 7 点推送：
+- 今日天气
+- 日程安排
+- 新闻摘要
 
-if args.length < 3 {
-    print("用法：calc <数字1> <运算符> <数字2>")
-    exit(1)
-}
+### 案例 2：邮件自动回复
 
-num1 = args[0].toNumber()
-op = args[1]
-num2 = args[2].toNumber()
+设置规则，自动处理：
+- 收到快递通知 → 回复"已收到，谢谢"
+- 会议邀请 → 自动确认参加
+- 紧急邮件 → 立即通知
 
-result = match op {
-    "+" => num1 + num2,
-    "-" => num1 - num2,
-    "*" => num1 * num2,
-    "/" => num2 != 0 ? num1 / num2 : "错误：除数不能为零",
-    _ => "未知运算符"
-}
+### 案例 3：文件整理
 
-print("结果：" + result)
-```
-
-## 微服务开发
-
-OpenCLAW 的轻量级和高性能特性使其非常适合开发微服务。
-
-```claw
-import claw.http
-
-// 创建微服务
-app = http.Server.new(3000)
-
-// 用户服务
-app.get("/api/users", func(req, res) {
-    users = [
-        {"id": 1, "name": "张三"},
-        {"id": 2, "name": "李四"}
-    ]
-    res.json(users)
-})
-
-// 订单服务
-app.get("/api/orders", func(req, res) {
-    orders = [
-        {"id": 101, "user_id": 1, "amount": 100},
-        {"id": 102, "user_id": 2, "amount": 200}
-    ]
-    res.json(orders)
-})
-
-app.listen()
-```
+自动整理下载文件夹：
+- 按类型分类
+- 按日期归档
+- 删除过期文件
 
 ## 小结
 
-本章我们介绍了 OpenCLAW 的主要应用场景，包括 Web 开发、自动化脚本、数据处理、命令行工具和微服务开发。这些示例展示了 OpenCLAW 的 versatility（多用途性）。
+本章我们介绍了 OpenClaw 的主要应用场景，包括个人助手、办公自动化、信息聚合、开发辅助、智能家居和数据分析等。
 
-在后续章节中，我们将逐步深入学习每个应用场景的具体实现方法。
+在后续章节中，我们将逐步学习如何配置和使用这些功能。
 
 ---
 
-**上一章**：[什么是 OpenCLAW？](./chapter1-what-is-openclaw.md)
-**下一章**：[安装 OpenCLAW](./chapter2-installation.md)
+**上一章**：[什么是 OpenClaw？](./chapter1-what-is-openclaw.md)
+**下一章**：[安装 OpenClaw](./chapter2-installation.md)
