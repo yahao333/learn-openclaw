@@ -62,6 +62,10 @@ git clone https://github.com/openclaw/openclaw.git
 python main.py
 ```
 
+首次运行会自动创建配置文件，默认位置：
+- Windows：`C:\Users\你的用户名\.openclaw\openclaw.json`
+- Mac/Linux：`~/.openclaw/openclaw.json`
+
 看到类似这样的输出就成功了：
 ```
 🚀 OpenClaw 启动成功！
@@ -125,6 +129,32 @@ python3 main.py
 
 ---
 
+## 📁 配置文件说明
+
+首次运行后，配置文件会自动创建在：
+
+| 系统 | 配置文件路径 |
+|------|-------------|
+| Windows | `C:\Users\你的用户名\.openclaw\openclaw.json` |
+| Mac | `~/.openclaw/openclaw.json` |
+| Linux | `~/.openclaw/openclaw.json` |
+
+### 配置示例
+
+```json
+{
+  "ai": {
+    "provider": "qwen",
+    "model": "qwen-turbo",
+    "qwen": {
+      "api_key": "your-api-key"
+    }
+  }
+}
+```
+
+---
+
 ## ⚠️ 常见问题
 
 ### Q: pip 不是内部或外部命令？
@@ -152,10 +182,18 @@ chcp 65001
 ### Q: 端口被占用？
 
 **解决**：修改配置文件中的端口
-```yaml
-server:
-  port: 8081
+
+```json
+{
+  "server": {
+    "port": 8081
+  }
+}
 ```
+
+### Q: 配置文件在哪里？
+
+首次运行后自动创建在 `~/.openclaw/openclaw.json`
 
 ### Q: 想要后台运行？
 

@@ -18,26 +18,43 @@
 
 > ⚠️ **注意**：API Key 只显示一次，一定要保存好！
 
-## 第二步：安装 SDK
+## 第二步：配置 openclaw.json
 
-```bash
-pip install dashscope
+打开配置文件：
+- Windows：`C:\Users\你的用户名\.openclaw\openclaw.json`
+- Mac/Linux：`~/.openclaw/openclaw.json`
+
+修改 AI 配置：
+
+```json
+{
+  "ai": {
+    "provider": "qwen",
+    "model": "qwen-turbo",
+    "qwen": {
+      "api_key": "你的APIKey"
+    }
+  }
+}
 ```
 
-## 第三步：配置 config.yaml
+## 第三步：使用环境变量（推荐）
 
-打开 `config.yaml`，修改 AI 配置：
+为了安全起见，推荐使用环境变量：
 
-```yaml
-ai:
-  provider: "qwen"
-  model: "qwen-turbo"  # 可选：qwen-turbo（快）、qwen-plus（强）、qwen-max（最强）
-
-  qwen:
-    api_key: "${DASHSCOPE_API_KEY}"
+```json
+{
+  "ai": {
+    "provider": "qwen",
+    "model": "qwen-turbo",
+    "qwen": {
+      "api_key": "${DASHSCOPE_API_KEY}"
+    }
+  }
+}
 ```
 
-## 第四步：设置环境变量
+然后设置环境变量：
 
 **Windows**（CMD 中）：
 ```cmd
@@ -49,15 +66,13 @@ set DASHSCOPE_API_KEY=你的APIKey
 export DASHSCOPE_API_KEY=你的APIKey
 ```
 
-> 💡 **小技巧**：也可以直接写在配置文件中（不推荐，不安全）：
-> ```yaml
-> qwen:
->   api_key: "sk-xxx"  # 不推荐！
-> ```
-
-## 第五步：测试
+## 第四步：重启测试
 
 ```bash
+# 停止服务
+Ctrl + C
+
+# 重新启动
 python main.py
 ```
 
@@ -90,6 +105,10 @@ python main.py
 ### Q: 如何查看剩余额度？
 
 访问：https://dashscope.console.aliyun.com/ → 查看配额
+
+### Q: 修改配置不生效？
+
+记得重启 OpenClaw！
 
 ---
 
