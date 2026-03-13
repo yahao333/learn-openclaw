@@ -1,91 +1,68 @@
 # 安装 OpenClaw
 
-⭐ **只需 3 步，小白也能学会！**
+⭐ **只需 2 步，小白也能学会！**
 
 ---
 
-## 第一步：安装 Python
+## 第一步：安装 Node.js
 
-> 如果你电脑已经安装了 Python，跳过这步！
+> 如果你电脑已经安装了 Node.js，跳过这步！
 
-### Windows
+### Windows / Mac
 
-1. 下载 Python：https://www.python.org/downloads/
-2. 运行安装包
-3. **一定要勾选** `☑ Add Python to PATH`
-4. 点「Install Now」完成
+1. 下载 Node.js：https://nodejs.org/
+2. 运行安装包，完成！
 
-### Mac
+### Mac（用终端）
 
-通常已经预装了，打开「终端」输入 `python3 --version` 确认一下
+```bash
+brew install node
+```
 
 ### Linux
 
 ```bash
-sudo apt install python3 python3-pip
+# Ubuntu/Debian
+sudo apt update
+sudo apt install nodejs npm
 ```
 
 ---
 
-## 第二步：下载 OpenClaw
-
-### 方法 A：直接下载（推荐）
-
-1. 打开：https://github.com/openclaw/openclaw/archive/refs/heads/main.zip
-2. 解压到一个文件夹，比如：`D:\openclaw`
-
-### 方法 B：用 Git（需要安装 Git）
+## 第二步：安装 OpenClaw
 
 ```bash
-git clone https://github.com/openclaw/openclaw.git
+npm install -g openclaw
 ```
 
 ---
 
-## 第三步：运行！
+## 运行！
 
 ```bash
-# 进入文件夹
-cd openclaw
-
-# 运行！
-python main.py
+openclaw
 ```
 
-> 首次运行会自动创建配置文件
-
-看到下面这些就是成功了 🎉
+首次运行会显示配置文件位置：
 
 ```
-🚀 OpenClaw 启动成功！
-📡 服务地址：http://localhost:8080
+配置文件位置：~/openclaw/openclaw.json
 ```
-
----
-
-## 配置文件在哪？
-
-首次运行后会自动创建：
-- Windows：`C:\Users\你的用户名\.openclaw\openclaw.json`
-- Mac/Linux：`~/.openclaw/openclaw.json`
 
 ---
 
 ## ⚠️ 常见问题
 
-### 💥 运行报错"pip 不是内部命令"
+### 💥 报错"npm 不是内部命令"
 
-重新安装 Python，**一定要勾选 Add to PATH**
+重新安装 Node.js
 
-### 🐢 安装很慢
+### 💥 报错"权限被拒绝"
 
 ```bash
-pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+# Mac/Linux
+sudo npm install -g openclaw
 ```
-
-### 📝 中文乱码
-
-在 CMD 运行：`chcp 65001`
 
 ---
 
