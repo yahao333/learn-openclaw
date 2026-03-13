@@ -1,49 +1,86 @@
-# OpenClaw 教程大纲
+# 📚 OpenClaw 教程大纲
 
-欢迎学习 OpenClaw！本教程将带领你从零基础入门 OpenClaw，打造你的私人 AI 助手。
+🎯 本教程专为**中国零基础小白**设计，手把手教你搭建私人 AI 助手！
 
-## 教程目录
+## 📖 教程导航
 
-### 第一章：初识 OpenClaw
-- [什么是 OpenClaw？](./chapter1-what-is-openclaw.md)
-- [OpenClaw 的应用场景](./chapter1-applications.md)
+### 🅰️ 基础入门（⭐）
 
-### 第二章：环境搭建
-- [安装 OpenClaw](./chapter2-installation.md)
-- [Docker 安装方式](./chapter2-docker.md)
+| 章节 | 内容 | 难度 |
+|------|------|------|
+| [什么是 OpenClaw？](./chapter1-what-is-openclaw.md) | 了解 AI Agent 是什么 | ⭐ |
+| [OpenClaw 能做什么？](./chapter1-applications.md) | 实际应用场景 | ⭐ |
+| [安装 OpenClaw](./chapter2-installation.md) | Windows/Mac/Linux 安装 | ⭐⭐ |
+| [Docker 安装](./chapter2-docker.md) | 容器化部署 | ⭐⭐ |
 
-### 第三章：基础配置
-- [配置文件详解](./chapter3-configuration.md)
-- [环境变量设置](./chapter3-env-vars.md)
+### 🅱️ 配置进阶（⭐⭐）
 
-### 第四章：接入 AI 模型
-- [接入千问模型](./chapter4-qwen.md)
-- [接入 GPT 模型](./chapter4-gpt.md)
-- [多模型切换](./chapter4-multi-model.md)
+| 章节 | 内容 | 难度 |
+|------|------|------|
+| [配置文件详解](./chapter3-configuration.md) | 配置文件怎么改 | ⭐⭐ |
+| [环境变量设置](./chapter3-env-vars.md) | 保护你的 API Key | ⭐⭐ |
 
-### 第五章：平台集成
-- [接入 Telegram](./chapter5-telegram.md)
-- [接入飞书](./chapter5-feishu.md)
-- [接入 Discord](./chapter5-discord.md)
+### 🅾️ AI 模型接入（⭐⭐）
 
-### 第六章：实战项目
-- [项目：天气推送助手](./chapter6-weather.md)
-- [项目：日程管理助手](./chapter6-calendar.md)
-- [项目：文件管理助手](./chapter6-files.md)
+| 章节 | 内容 | 难度 |
+|------|------|------|
+| [接入千问](./chapter4-qwen.md) | 阿里免费 AI | ⭐⭐ |
+| [接入文心一言](./chapter4-wenxin.md) | 百度免费 AI | ⭐⭐ |
+| [接入 GPT](./chapter4-gpt.md) | OpenAI | ⭐⭐⭐ |
+| [多模型切换](./chapter4-multi-model.md) | 自由切换 AI | ⭐⭐⭐ |
 
-## 学习路线建议
+### 📱 平台接入（重点！⭐⭐⭐）
 
-1. **入门阶段**（第1-2章）：了解 OpenClaw 是什么，学会安装部署
-2. **配置阶段**（第3章）：掌握配置文件和环境变量
-3. **集成阶段**（第4-5章）：接入 AI 模型和通讯平台
-4. **实践阶段**（第6章）：通过项目巩固所学知识
+| 章节 | 内容 | 难度 |
+|------|------|------|
+| [接入飞书](./chapter5-feishu.md) | 企业微信/飞书 | ⭐⭐⭐ |
+| [接入微信](./chapter5-wechat.md) | 微信控制 AI | ⭐⭐⭐⭐ |
+| [接入钉钉](./chapter5-dingtalk.md) | 钉钉机器人 | ⭐⭐⭐ |
+| [接入 Telegram](./chapter5-telegram.md) | 国际用户 | ⭐⭐⭐ |
 
-## 如何使用本教程
+### 🛠️ 实战项目
 
-- 建议按顺序学习，每个章节都要动手实践
-- 教程中的配置示例可以直接使用
-- 遇到问题可以在 GitHub 上提 Issue
+| 章节 | 内容 |
+|------|------|
+| [天气推送助手](./chapter6-weather.md) | 每天自动推送天气 |
+| [日程管理助手](./chapter6-calendar.md) | 智能日程管理 |
+| [文件管理助手](./chapter6-files.md) | 自动整理文件 |
 
-## 后续更新
+## 🚀 学习路线推荐
 
-本教程会持续更新，敬请期待更多内容！
+### 零基础小白路线
+```
+1. 阅读"什么是 OpenClaw" → 了解概念
+   ↓
+2. 按照"安装教程"操作 → 安装软件
+   ↓
+3. 跳过配置，直接运行 → 先跑起来
+   ↓
+4. 选一个"实战项目" → 动手实践
+```
+
+### 进阶玩家路线
+```
+1. 安装 OpenClaw
+   ↓
+2. 接入千问/文心 AI → 体验 AI 对话
+   ↓
+3. 接入飞书/微信 → 用通讯软件控制
+   ↓
+4. 定制自己的 AI 助手
+```
+
+## 💡 使用提示
+
+- 📌 建议按顺序学习
+- 💬 遇到问题先看章节内的"常见问题"
+- 🆘 实在解决不了可以提 Issue
+
+## 🔄 更新日志
+
+- **v2.0**：新增微信、钉钉接入教程
+- **v1.0**：初始版本
+
+---
+
+💪 坚持就是胜利，动起来！
