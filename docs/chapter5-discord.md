@@ -1,57 +1,61 @@
 # 接入 Discord
 
-Discord 是游戏社区常用的通讯平台，OpenClaw 也支持接入。
+Discord 是国际常用的通讯平台，接入后可以用 Discord 控制 AI。
 
 ## 前提条件
 
 1. Discord 账号
-2. 创建 Discord 应用：https://discord.com/developers/applications
+2. 创建 Discord 应用
 
-## 配置步骤
+## 创建 Discord 应用
 
-### 1. 创建 Discord 应用
-
-1. 打开 Discord 开发者门户
+1. 打开 https://discord.com/developers/applications
 2. 创建新应用
 3. 添加机器人（Bot）
 4. 获取 Bot Token
 
-### 2. 配置权限
+## 配置步骤
 
-选择以下权限：
-- Send Messages
-- Read Message History
+### 1. 修改配置文件
 
-### 3. 配置 config.yaml
+打开 `~/.openclaw/openclaw.json`：
 
-```yaml
-platforms:
-  discord:
-    enabled: true
-    bot_token: "${DISCORD_BOT_TOKEN}"
-    allowed_guilds:
-      - "guild_id_1"
-    allowed_channels:
-      - "channel_id_1"
+```json
+{
+  "platforms": {
+    "discord": {
+      "enabled": true,
+      "bot_token": "${DISCORD_BOT_TOKEN}"
+    }
+  }
+}
 ```
 
-### 4. 设置环境变量
+### 2. 设置环境变量
 
+**Windows**（CMD）：
+```cmd
+set DISCORD_BOT_TOKEN=your-bot-token
+```
+
+**Mac/Linux**（终端）：
 ```bash
-export DISCORD_BOT_TOKEN="your-bot-token"
+export DISCORD_BOT_TOKEN=your-bot-token
 ```
 
-### 5. 邀请机器人
+### 3. 邀请机器人
 
-生成邀请链接并添加到服务器。
+在 Discord 开发者门户生成邀请链接，添加到服务器。
 
-## 启动
+## 启动测试
 
 ```bash
 python main.py
 ```
 
+在 Discord 中发送消息测试。
+
 ---
 
-**上一章**：[接入飞书](./chapter5-feishu.md)
-**下一章**：[项目：天气推送助手](./chapter6-weather.md)
+**上一章**：[接入钉钉](./chapter5-dingtalk.md)
+**下一章**：[天气推送助手](./chapter6-weather.md)

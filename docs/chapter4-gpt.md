@@ -9,28 +9,32 @@ OpenClaw 也支持接入 OpenAI 的 GPT 模型。
 
 ## 配置步骤
 
-### 1. 安装 SDK
+### 1. 修改配置文件
 
-```bash
-pip install openai
+打开 `~/.openclaw/openclaw.json`：
+
+```json
+{
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "openai": {
+      "api_key": "${OPENAI_API_KEY}"
+    }
+  }
+}
 ```
 
-### 2. 配置 config.yaml
+### 2. 设置环境变量
 
-```yaml
-ai:
-  provider: "openai"
-  model: "gpt-3.5-turbo"
-
-  openai:
-    api_key: "${OPENAI_API_KEY}"
-    base_url: "https://api.openai.com/v1"
+**Windows**（CMD）：
+```cmd
+set OPENAI_API_KEY=your-api-key
 ```
 
-### 3. 设置环境变量
-
+**Mac/Linux**（终端）：
 ```bash
-export OPENAI_API_KEY="your-api-key"
+export OPENAI_API_KEY=your-api-key
 ```
 
 ## 模型选择
@@ -45,21 +49,26 @@ export OPENAI_API_KEY="your-api-key"
 
 如果无法直接访问 OpenAI，需要配置代理：
 
-```yaml
-ai:
-  openai:
-    api_key: "${OPENAI_API_KEY}"
-    base_url: "https://api.openai.com/v1"
-    proxy: "http://127.0.0.1:7890"
+```json
+{
+  "ai": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "openai": {
+      "api_key": "${OPENAI_API_KEY}",
+      "proxy": "http://127.0.0.1:7890"
+    }
+  }
+}
 ```
 
 ## 常见问题
 
-### Q1：无法连接？
+### Q: 无法连接？
 
 检查网络或配置代理。
 
-### Q2：API 余额不足？
+### Q: API 余额不足？
 
 登录 OpenAI 账户检查余额。
 

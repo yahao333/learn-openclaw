@@ -1,75 +1,71 @@
 # 接入 Telegram
 
-Telegram 是最常用的 OpenClaw 接入平台之一。
+Telegram 是国际常用的通讯平台，接入后可以用 Telegram 控制 AI。
 
 ## 前提条件
 
 1. Telegram 账号
-2. 创建 Telegram Bot（见上一章）
+2. 创建 Telegram Bot
+
+## 创建 Bot
+
+1. 打开 Telegram
+2. 搜索 @BotFather
+3. 发送 /newbot
+4. 按照提示设置机器人名称和用户名
+5. 获取 Bot Token
 
 ## 配置步骤
 
-### 1. 配置 config.yaml
+### 1. 修改配置文件
 
-```yaml
-platforms:
-  telegram:
-    enabled: true
-    bot_token: "${TELEGRAM_BOT_TOKEN}"
-    # 可选配置
-    api_id: "${TELEGRAM_API_ID}"
-    api_hash: "${TELEGRAM_API_HASH}"
-    allowed_users:
-      - "user_id_1"
-      - "user_id_2"
+打开 `~/.openclaw/openclaw.json`：
+
+```json
+{
+  "platforms": {
+    "telegram": {
+      "enabled": true,
+      "bot_token": "${TELEGRAM_BOT_TOKEN}"
+    }
+  }
+}
 ```
 
 ### 2. 设置环境变量
 
-```bash
-export TELEGRAM_BOT_TOKEN="your-bot-token"
-export TELEGRAM_API_ID="your-api-id"
-export TELEGRAM_API_HASH="your-api-hash"
+**Windows**（CMD）：
+```cmd
+set TELEGRAM_BOT_TOKEN=your-bot-token
 ```
 
-### 3. 启动
+**Mac/Linux**（终端）：
+```bash
+export TELEGRAM_BOT_TOKEN=your-bot-token
+```
+
+## 启动测试
 
 ```bash
 python main.py
 ```
 
-### 4. 绑定 Bot
+在 Telegram 中搜索你的机器人，发送 /start 开始使用。
 
-1. 在 Telegram 中搜索你的 Bot 用户名
-2. 发送 `/start` 开始对话
-3. 根据配置，可能需要验证用户
+## 常见问题
 
-## 功能测试
+### Q: 机器人不回消息？
 
-发送消息给 Bot 测试：
-- 发送 "你好"
-- 发送 "帮我查一下天气"
+检查 bot_token 是否正确，网络是否正常。
 
-## 高级配置
+### Q: 如何开启调试？
 
-### 用户白名单
-
-```yaml
-platforms:
-  telegram:
-    allowed_users:
-      - 123456789  # 用户 ID
-```
-
-### 自动回复
-
-```yaml
-platforms:
-  telegram:
-    auto_reply: true
-    reply_keywords:
-      - "hello"
-      - "help"
+```json
+{
+  "server": {
+    "debug": true
+  }
+}
 ```
 
 ---

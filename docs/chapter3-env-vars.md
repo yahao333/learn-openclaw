@@ -1,76 +1,63 @@
 # 环境变量设置
 
-## 为什么要使用环境变量？
-
 环境变量用于存储敏感信息（如 API Key），避免硬编码在配置文件中。
 
-## 创建 .env 文件
+## 在配置文件中使用环境变量
 
-在项目根目录创建 `.env` 文件：
+打开 `~/.openclaw/openclaw.json`，使用 `${ENV_VAR}` 格式引用环境变量：
 
+```json
+{
+  "ai": {
+    "provider": "qwen",
+    "qwen": {
+      "api_key": "${DASHSCOPE_API_KEY}"
+    }
+  }
+}
+```
+
+## 设置环境变量
+
+**Windows**（CMD）：
+```cmd
+set DASHSCOPE_API_KEY=your-api-key
+```
+
+**Mac/Linux**（终端）：
 ```bash
-# AI 模型
-DASHSCOPE_API_KEY=your-qwen-api-key
-OPENAI_API_KEY=your-openai-api-key
-
-# Telegram
-TELEGRAM_BOT_TOKEN=your-bot-token
-TELEGRAM_API_ID=your-api-id
-TELEGRAM_API_HASH=your-api-hash
-
-# 飞书
-FEISHU_APP_ID=your-app-id
-FELEISHU_APP_SECRET=your-app-secret
-FEISHU_VERIFICATION_TOKEN=your-verification-token
-
-# Discord
-DISCORD_BOT_TOKEN=your-discord-token
+export DASHSCOPE_API_KEY=your-api-key
 ```
 
-## 加载环境变量
+## 常用环境变量
 
-### 方式 1：使用 python-dotenv
+| 变量名 | 用途 |
+|--------|------|
+| DASHSCOPE_API_KEY | 千问 API Key |
+| OPENAI_API_KEY | OpenAI API Key |
+| TELEGRAM_BOT_TOKEN | Telegram Bot Token |
+| FEISHU_APP_ID | 飞书 App ID |
+| FEISHU_APP_SECRET | 飞书 App Secret |
 
-```python
-from dotenv import load_dotenv
-load_dotenv()
+## 持久化设置（可选）
+
+### Windows
+
+创建 `openclaw.bat` 文件：
+```cmd
+@echo off
+set DASHSCOPE_API_KEY=your-api-key
+python main.py
 ```
 
-### 方式 2：Docker 环境变量
+### Mac/Linux
 
-```yaml
-# docker-compose.yml
-services:
-  openclaw:
-    environment:
-      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
-      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+在 `~/.bashrc` 或 `~/.zshrc` 中添加：
+```bash
+export DASHSCOPE_API_KEY=your-api-key
 ```
 
-## 获取 API Key
-
-### 千问（DashScope）
-
-1. 访问 https://dashscope.console.aliyun.com/
-2. 注册/登录账号
-3. 创建 API Key
-
-### Telegram Bot
-
-1. 打开 Telegram
-2. 搜索 @BotFather
-3. 发送 /newbot 创建机器人
-4. 获取 Bot Token
-
-### 飞书应用
-
-1. 打开 https://open.feishu.cn/
-2. 创建企业应用
-3. 获取 App ID 和 App Secret
-
-## 小结
-
-本章学习了如何设置和管理环境变量。正确使用环境变量可以保护你的敏感信息不被泄露。
+然后运行 `source ~/.bashrc` 生效。
 
 ---
 
